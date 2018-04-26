@@ -1,15 +1,17 @@
-.title-complete {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+$color-black: #000;
 
-.title {
-  color: #000;
+h1 {
   font-size: 24px;
+  color: #000;
+  transform: translateY(75%);
+  position: absolute;
 }
-
-.triangle {
-  height: 100px;
+h1::before {
+  position: relative;
+  z-index: -1;
+  content: url(/home/bgerez/repo/bg-react-native/assets/triangle.svg);
+  float: left;
+  height: 90px;
   width: 100px;
+  transform: translateX(22%) translateY(-65%);
 }
