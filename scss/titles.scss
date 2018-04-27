@@ -6,6 +6,7 @@ h1 {
   transform: translateY(75%);
   position: absolute;
 }
+
 h1::before {
   position: relative;
   z-index: -1;
