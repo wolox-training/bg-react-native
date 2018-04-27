@@ -1,21 +1,18 @@
-$color-black: #000;
-
-h1 {
+.title {
   font-size: 24px;
-  color: #000;
-  transform: translateY(490%) translateX(41%);
-  position: absolute;
+  color: $color-black;
 }
 
 .img-title {
   width: 100px;
   height: 100px;
-  transform: translateY(30%);
-  z-index: -1;
+  left: 35px;
   position: relative;
+  top: 40px;
+  z-index: -1;
 }
 
 h1::before {
-  content: url(#img-title);
-  float: left;
+  content: url(.img-title);
+  position: absolute;
 }

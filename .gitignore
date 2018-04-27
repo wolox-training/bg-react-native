@@ -2,3 +2,7 @@ application.css
 application.css.map
 .sass-cache/
 scss/.sass-cache/
+styles.css
+titles.css
+colors.css
+equalizer.css
