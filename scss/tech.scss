@@ -1,4 +1,4 @@
-%radius {
+%tech-border-radius {
   border-radius: 5px;
 }
 
@@ -7,19 +7,12 @@
   width: 200px;
 }
 
-%size-margin-element {
+%tech-margin-element {
   margin-bottom: 15px;
 }
 
-.border {
-  @extend %radius;
-  @extend %size-tech;
-  border: 2px solid $earls-green;
-  margin: 17px;
-}
-
 .tech {
-  @extend %radius;
+  @extend %tech-border-radius;
   @extend %size-tech;
   align-items: center;
   background-color: $earls-green;
@@ -28,39 +21,50 @@
   left: 5%;
   position: relative;
   top: 5%;
+  margin: 1% 1% 2% 2%;
+
+  &::before {
+    content: "";
+    @extend %tech-border-radius;
+    @extend %size-tech;
+    border: 2px solid $earls-green;
+    left: -6%;
+    position: absolute;
+    top: -4%;
+  }
 }
 
-.img-react {
+.img-tech {
   margin: 15px;
   height: 100px;
   width: 100px;
 }
 
-.paragraph-1 {
-  @extend %size-margin-element;
+.technology-name {
+  @extend %tech-margin-element;
   font-weight: bold;
 }
 
-.paragraph-2 {
-  @extend %size-margin-element;
+.release {
+  @extend %tech-margin-element;
   font-weight: bold;
 }
 
 
-.paragraph-3 {
+.description {
   margin-top: 15px;
   margin-right: 9px;
   margin-left: 15px;
   text-align: center;
 }
 
-.front-end {
+.layout {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: 5%;
-  margin-top: 1%;
+  margin-left: 6%;
+  margin-top: 2%;
   margin-bottom: 7%;
   position: relative;
-  width: 80%;
+  width: 60%;
 }
