@@ -1,0 +1,55 @@
+%radius {
+  border-radius: 5px;
+}
+
+%size-tech {
+  height: 300px;
+  width: 200px;
+}
+
+%size-letter-medium {
+  font-size: 16px;
+}
+
+%size-margin-element {
+  margin-bottom: 15px;
+}
+
+.border {
+  @extend %radius;
+  @extend %size-tech;
+  border: 2px solid $earls-green;
+}
+
+.tech {
+  @extend %radius;
+  @extend %size-tech;
+  background-color: $earls-green;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transform: translateY(2%) translateX(5%);
+}
+
+.img-react {
+  margin: 15px;
+  height: 100px;
+  width: 100px;
+}
+
+.paragraph-1 {
+  @extend %size-margin-element;
+  font-weight: bold;
+}
+
+.paragraph-2 {
+  @extend %size-margin-element;
+  font-weight: bold;
+}
+
+
+.paragraph-3 {
+  @extend %size-letter-medium;
+  margin: 15px;
+  text-align: center;
+}
