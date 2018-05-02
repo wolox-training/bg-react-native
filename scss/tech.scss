@@ -1,4 +1,4 @@
-%radius {
+%tech-border-radius {
   border-radius: 5px;
 }
 
@@ -11,18 +11,18 @@
   font-size: 16px;
 }
 
-%size-margin-element {
+%tech-margin-element {
   margin-bottom: 15px;
 }
 
 .border {
-  @extend %radius;
+  @extend %tech-border-radius;
   @extend %size-tech;
   border: 2px solid $earls-green;
 }
 
 .tech {
-  @extend %radius;
+  @extend %tech-border-radius;
   @extend %size-tech;
   align-items: center;
   background-color: $earls-green;
@@ -33,24 +33,24 @@
   top: 5%;
 }
 
-.img-react {
+.img-tech {
   margin: 15px;
   height: 100px;
   width: 100px;
 }
 
-.paragraph-1 {
-  @extend %size-margin-element;
+.technology-name {
+  @extend %tech-margin-element;
   font-weight: bold;
 }
 
-.paragraph-2 {
-  @extend %size-margin-element;
+.release {
+  @extend %tech-margin-element;
   font-weight: bold;
 }
 
 
-.paragraph-3 {
+.description {
   @extend %size-letter-medium;
   margin: 15px;
   text-align: center;
