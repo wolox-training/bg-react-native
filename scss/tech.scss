@@ -7,18 +7,8 @@
   width: 200px;
 }
 
-%size-letter-medium {
-  font-size: 16px;
-}
-
 %tech-margin-element {
   margin-bottom: 15px;
-}
-
-.border {
-  @extend %tech-border-radius;
-  @extend %size-tech;
-  border: 2px solid $earls-green;
 }
 
 .tech {
@@ -31,6 +21,16 @@
   left: 5%;
   position: relative;
   top: 5%;
+
+  &::before {
+    content: "";
+    @extend %tech-border-radius;
+    @extend %size-tech;
+    border: 2px solid $earls-green;
+    left: -6%;
+    position: absolute;
+    top: -4%;
+  }
 }
 
 .img-tech {
