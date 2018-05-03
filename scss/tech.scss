@@ -42,7 +42,7 @@
 
 .technology-name {
   @extend %tech-margin-element;
-  font-weight: bold;
+  @extend %size-letter-medium;
 }
 
 .release {
