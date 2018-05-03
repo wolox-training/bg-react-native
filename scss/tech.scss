@@ -3,8 +3,8 @@
 }
 
 %size-tech {
-  height: 300px;
-  width: 200px;
+  height: 320px;
+  width: 220px;
 }
 
 %tech-margin-element {
@@ -18,24 +18,24 @@
   background-color: $earls-green;
   display: flex;
   flex-direction: column;
-  left: 5%;
+  left: 45px;
+  margin: 10px 15px 10px 15px;
   position: relative;
-  top: 5%;
-  margin: 1% 1% 2% 2%;
+  padding: 0 25px 0 5px;
 
   &::before {
     content: "";
     @extend %tech-border-radius;
     @extend %size-tech;
     border: 2px solid $earls-green;
-    left: -6%;
+    left: -10px;
     position: absolute;
-    top: -4%;
+    top: -10px;
   }
 }
 
 .img-tech {
-  margin: 15px;
+  margin: 13px;
   height: 100px;
   width: 100px;
 }
@@ -52,9 +52,7 @@
 
 
 .description {
-  margin-top: 15px;
-  margin-right: 9px;
-  margin-left: 15px;
+  margin: 15px 9px 0 5px;
   text-align: center;
 }
 
@@ -62,9 +60,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: 6%;
-  margin-top: 2%;
-  margin-bottom: 7%;
+  margin: 10px 0 45px 125px;
+  padding: 10px 600px 0 0;
   position: relative;
-  width: 60%;
 }
