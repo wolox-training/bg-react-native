@@ -1,0 +1,57 @@
+%tech-border-radius {
+  border-radius: 5px;
+}
+
+%size-tech {
+  height: 300px;
+  width: 200px;
+}
+
+%tech-margin-element {
+  margin-bottom: 15px;
+}
+
+.tech {
+  @extend %tech-border-radius;
+  @extend %size-tech;
+  align-items: center;
+  background-color: $earls-green;
+  display: flex;
+  flex-direction: column;
+  left: 50px;
+  position: relative;
+  top: 50px;
+
+  &::before {
+    content: "";
+    @extend %tech-border-radius;
+    @extend %size-tech;
+    border: 2px solid $earls-green;
+    left: -10px;
+    position: absolute;
+    top: -10px;
+  }
+}
+
+.img-tech {
+  margin: 15px;
+  height: 100px;
+  width: 100px;
+}
+
+.technology-name {
+  @extend %tech-margin-element;
+  font-weight: bold;
+}
+
+.release {
+  @extend %tech-margin-element;
+  font-weight: bold;
+}
+
+
+.description {
+  @extend %size-letter-medium;
+  margin: 15px;
+  text-align: center;
+}
