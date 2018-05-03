@@ -1,11 +1,8 @@
 .title {
   color: $black;
   font-size: 24px;
-  margin-left: 100px;
-  margin-top: 50px;
-  padding-left: 57px;
-  padding-top: 45px;
-  padding-bottom: 50px;
+  margin: 50px 0 0 100px;
+  padding: 45px 0 50px 55px;
   position: relative;
 
   &::before {
