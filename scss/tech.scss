@@ -18,18 +18,18 @@
   background-color: $earls-green;
   display: flex;
   flex-direction: column;
-  left: 5%;
+  left: 50px;
   position: relative;
-  top: 5%;
+  top: 50px;
 
   &::before {
     content: "";
     @extend %tech-border-radius;
     @extend %size-tech;
     border: 2px solid $earls-green;
-    left: -6%;
+    left: -10px;
     position: absolute;
-    top: -4%;
+    top: -10px;
   }
 }
 
