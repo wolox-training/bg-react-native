@@ -3,8 +3,8 @@
 }
 
 %size-tech {
-  height: 300px;
-  width: 200px;
+  height: 320px;
+  width: 220px;
 }
 
 %tech-margin-element {
@@ -18,9 +18,10 @@
   background-color: $earls-green;
   display: flex;
   flex-direction: column;
-  left: 50px;
+  left: 45px;
+  margin: 15px 15px;
   position: relative;
-  top: 50px;
+  padding: 0 25px 0 5px;
 
   &::before {
     content: "";
@@ -34,14 +35,14 @@
 }
 
 .img-tech {
-  margin: 15px;
+  margin: 13px;
   height: 100px;
   width: 100px;
 }
 
 .technology-name {
   @extend %tech-margin-element;
-  font-weight: bold;
+  @extend %size-letter-medium;
 }
 
 .release {
@@ -51,7 +52,15 @@
 
 
 .description {
-  @extend %size-letter-medium;
-  margin: 15px;
+  margin: 15px 10px 0 5px;
   text-align: center;
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px 0 45px;
+  max-width: 1000px;
+  width: 100%;
 }
