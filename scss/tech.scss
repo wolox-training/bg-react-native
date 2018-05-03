@@ -23,15 +23,22 @@
   position: relative;
   padding: 0 25px 0 5px;
 
+
   &::before {
-    content: "";
+    content:"";
     @extend %tech-border-radius;
     @extend %size-tech;
     border: 2px solid $earls-green;
     left: -10px;
     position: absolute;
     top: -10px;
+    transition: all 0.5s ease-in-out;
   }
+}
+
+.tech:hover::before {
+  transform: translateX(20px) translateY(20px);
+
 }
 
 .img-tech {
@@ -49,7 +56,6 @@
   @extend %tech-margin-element;
   font-weight: bold;
 }
-
 
 .description {
   margin: 15px 10px 0 5px;
