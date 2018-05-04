@@ -1,0 +1,27 @@
+.footer {
+  align-items: center;
+  background-color: $cerulean;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-around;
+  padding: 20px 20px 5px;
+  width: 100%;
+}
+
+.footer-text {
+  @extend %size-letter-big;
+  color: $white;
+}
+
+.logo-wolox {
+  height: 75px;
+  max-width: 420px;
+  width: 100%;
+}
+
+.copyright {
+  @extend %size-letter-little;
+  align-self: flex-end;
+  color: $white;
+}
