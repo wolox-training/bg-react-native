@@ -31,6 +31,11 @@
     left: -10px;
     position: absolute;
     top: -10px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &:hover::before {
+    transform: translateX(20px) translateY(20px);
   }
 }
 
@@ -49,7 +54,6 @@
   @extend %tech-margin-element;
   font-weight: bold;
 }
-
 
 .description {
   margin: 15px 10px 0 5px;
