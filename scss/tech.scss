@@ -24,9 +24,9 @@
   padding: 0 25px 0 5px;
 
   &::before {
-    content: "";
     @extend %tech-border-radius;
     @extend %size-tech;
+    content: "";
     border: 2px solid $earls-green;
     left: -10px;
     position: absolute;
