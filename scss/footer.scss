@@ -6,7 +6,7 @@
   height: 200px;
   justify-content: space-around;
   padding: 20px 20px 5px;
-  width: 100%;
+  position: relative;
 }
 
 .footer-text {
@@ -14,7 +14,7 @@
   color: $white;
 }
 
-.logo-wolox {
+.logo-wolox-white {
   height: 75px;
   max-width: 420px;
   width: 100%;

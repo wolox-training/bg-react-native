@@ -1,14 +1,13 @@
 .title {
   color: $black;
   font-size: 24px;
-  margin: 0 0 0 100px;
-  padding: 45px 0 50px 55px;
+  padding: 45px 0 50px 0;
   position: relative;
 
   &::before {
     content: url(assets/triangle.svg);
     position: absolute;
-    left: 0;
+    left: -55px;
     top: 0;
     width: 75px;
     z-index: -1;
