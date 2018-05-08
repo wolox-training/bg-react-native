@@ -26,3 +26,22 @@
   align-self: flex-end;
   color: $white;
 }
+
+@media only screen and (max-width: 1024px) {
+  .footer-text {
+    font-size: 85%;
+  }
+
+  .logo-wolox-white {
+    width: 60%;
+  }
+
+  .footer {
+    height: 125px;
+  }
+
+  .copyright {
+    align-self: center;
+    font-size: 6px;
+  }
+}

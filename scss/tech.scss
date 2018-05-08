@@ -64,3 +64,34 @@
   display: grid;
   grid-template-columns: [first] 50% [line2] 25% [line3] 25%  ;
 }
+
+@media only screen and (max-width: 1024px) {
+  .tech-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .first-tech {
+    align-self: flex-start;
+    height: 320px;
+    width: 200px;
+    margin: 0 0 20px 0;
+    padding: 0 15px;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .tech {
+    border-top: 1px solid $earls-green;
+    margin: 0;
+    padding: 0 15px;
+    height: 320px;
+    width: 200px;
+  }
+
+  .layout {
+    margin: 110px 0 0 60px;
+  }
+}
