@@ -19,18 +19,12 @@
 
 .first-tech {
   align-self: center;
+  border-right: 1px solid $earls-green;
   grid-column: 1 / 2;
   grid-row: 1 / 3;
+  height: 670px;
+  justify-content: center;
   justify-self: end;
-
-  &:after {
-    content: "";
-    border: 1px solid $earls-green;
-    height: 670px;
-    position: absolute;
-    right: 0;
-    top: -180px;
-  }
 }
 
 .img-tech {
@@ -63,4 +57,35 @@
 .tech-container {
   display: grid;
   grid-template-columns: [first] 50% [line2] 25% [line3] 25%  ;
+}
+
+@media only screen and (max-width: 1024px) {
+  .tech-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .first-tech {
+    align-self: flex-start;
+    height: 320px;
+    width: 200px;
+    margin: 0 0 20px 0;
+    padding: 0 15px;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .tech {
+    border-top: 1px solid $earls-green;
+    margin: 0;
+    padding: 0 15px;
+    height: 320px;
+    width: 200px;
+  }
+
+  .layout {
+    margin: 110px 0 0 60px;
+  }
 }

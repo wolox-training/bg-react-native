@@ -5,6 +5,7 @@
   flex-direction: column;
   height: 200px;
   justify-content: space-around;
+  margin: 25px 0 0 0;
   padding: 20px 20px 5px;
   position: relative;
 }
@@ -24,4 +25,23 @@
   @extend %size-letter-little;
   align-self: flex-end;
   color: $white;
+}
+
+@media only screen and (max-width: 1024px) {
+  .footer-text {
+    font-size: 14px;
+  }
+
+  .logo-wolox-white {
+    width: 60%;
+  }
+
+  .footer {
+    height: 125px;
+  }
+
+  .copyright {
+    align-self: center;
+    font-size: 6px;
+  }
 }
