@@ -2,7 +2,7 @@ import { isArray } from './utils';
 
 export function min() {
   isArray();
-  return 1;
+  return Math.min();
 }
 
 export function copy() {
