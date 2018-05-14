@@ -15,5 +15,10 @@ export function min() {
 }
 
 export function copy(variable) {
-  return {...variable};
+  if (isArray(variable) === true) {
+    return [...variable];
+  } else {
+    return {...variable};
+  }
+
 }
