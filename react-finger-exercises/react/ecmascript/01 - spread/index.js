@@ -14,6 +14,6 @@ export function min() {
   }
 }
 
-export function copy() {
-
+export function copy(variable) {
+  return {...variable};
 }
