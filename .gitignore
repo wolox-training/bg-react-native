@@ -2,3 +2,4 @@
 application.css.map
 .sass-cache/
 scss/.sass-cache/
+node_modules
