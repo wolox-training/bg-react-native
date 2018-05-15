@@ -1,29 +1,26 @@
 import { isArray } from './utils';
 
-export function min() {
-  if (arguments === 1) {
-    return arguments[0];
-  } else if (arguments.length === 0) {
-    return undefined;
-  }
-  let [args] = arguments;
-  if (isArray(args) === true) {
-    return Math.min(...args);
+export function min(...args) {
+  if (arguments.length === 0) {
+      return undefined;
+  } else if (isArray(...args)) {
+      const [list] = args;
+      return Math.min(...list);
   } else {
-    return Math.min(...arguments);
+      return Math.min(...args);
   }
 }
 
 export function copy(variable) {
-  if (isArray(variable) === true) {
+  if (isArray(variable)) {
     return [...variable];
   } else {
     return {...variable};
   }
 }
 
-export function reverseMerge([...array1], [...array2]) {
-  let [...concatenatedArray] = [...array2, ...array1];
+export function reverseMerge(array1, array2) {
+  const concatenatedArray = [...array2, ...array1];
   return concatenatedArray;
 }
 

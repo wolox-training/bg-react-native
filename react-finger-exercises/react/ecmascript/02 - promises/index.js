@@ -1,18 +1,17 @@
 // Hint: use setInterval, create a new Promise and measure time with Date.now()
 
 export function delay(time) {
+  const MAX_TIME=200000;
   return new Promise(
     function (resolve, reject) {
-      if (time <= 5000){
-          let start = Date.now();
+      if (time <= MAX_TIME){
+          const start = Date.now();
           setTimeout( function() {
-            let result = (Date.now() - start);
-            if ((time - 100) <= result <= (time + 100)) {
-              resolve(result);
-            }
+            const result = (Date.now() - start);
+            resolve(result);
           }, time);
       } else {
-          let reason = new Error('This time is too much !');
+          const reason = new Error('This time is too much !');
           reject(reason);
       }
     }
@@ -20,15 +19,5 @@ export function delay(time) {
 }
 
 export function asyncDelay(time) {
-  return new Promise(
-    function (resolve, reject) {
-      let start = Date.now();
-      setTimeout( function() {
-        let result = (Date.now() - start);
-        if ((time - 100) <= result <= (time + 100)) {
-          resolve(result);
-        }
-      }, time);
-    }
-  );
+  return delay(time);
 }
