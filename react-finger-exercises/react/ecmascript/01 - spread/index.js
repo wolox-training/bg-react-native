@@ -1,14 +1,14 @@
 import { isArray } from './utils';
 
 export function min(...args) {
-  if (arguments.length === 0) {
+  if (!args.length) {
       return undefined;
   } else if (isArray(...args)) {
-      const [list] = args;
-      return Math.min(...list);
+      var [list] = args;
   } else {
-      return Math.min(...args);
+      var list = [...args];
   }
+  return Math.min(...list);
 }
 
 export function copy(variable) {
