@@ -20,5 +20,13 @@ export function copy(variable) {
   } else {
     return {...variable};
   }
+}
 
+export function reverseMerge([...array1], [...array2]) {
+  let [...concatenatedArray] = [...array2, ...array1];
+  return concatenatedArray;
+}
+
+export function filterAttribs({a, b, ...object}) {
+  return object;
 }
