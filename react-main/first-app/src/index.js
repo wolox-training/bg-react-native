@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './scss/index.scss';
+import styles from './scss/index.scss';
 import registerServiceWorker from './registerServiceWorker';
 
-import App from '~components/App'; // eslint-disable-line import/first
+import Game from '~components/Game'; // eslint-disable-line import/first
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Game className={styles} />, document.getElementById('root'));
 registerServiceWorker();
