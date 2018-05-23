@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 import Square from '../Square';
 
 class Board extends Component {
-  renderSquare = i => <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
+  renderSquare(i) {
+      return (
+          <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)}/>
+      );
+  }
 
   render() {
     return (

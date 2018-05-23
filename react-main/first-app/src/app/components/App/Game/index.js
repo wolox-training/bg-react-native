@@ -5,27 +5,29 @@ import Board from '../Board';
 import './styles.css';
 
 class Game extends Component {
-  state = { history: [{ squares: Array(9).fill(null)}], xIsNext: true };
+  state = { history: [{ squares: Array(9).fill(null)}], xIsNext: true, stepNumber: 0 };
+
+  jumpTo(move) {
+      this.setState({stepNumber: move, xIsNext: move%2 === 0});
+  }
 
   handleClick(i) {
     const history = this.state.history;
-    const current = history[history.length - 1];
+    const current = history[this.state.stepNumber];
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
-      history: history.concat([{
-          squares
-        }
-      ]),
-      xIsNext: !this.state.xIsNext
+      history: history.concat([{squares}]),
+      xIsNext: !this.state.xIsNext,
+      stepNumber: this.state.stepNumber+1
     });
   }
   render() {
     const history = this.state.history;
-    const current = history[history.length - 1];
+    const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
@@ -33,8 +35,8 @@ class Game extends Component {
         'Go to move #' + move :
         'Go to game start';
       return (
-        <li>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        <li key={move}>
+          <button onClick={()=>this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
