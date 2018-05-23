@@ -8,9 +8,7 @@ import calculateWinner from './utils.js';
 class Game extends Component {
   state = { history: [{ squares: Array(9).fill(null)}], xIsNext: true, stepNumber: 0 };
 
-  jumpTo = move => {
-    this.setState({ stepNumber: move, xIsNext: move % 2 === 0 });
-  };
+  jumpTo = move => this.setState({ stepNumber: move, xIsNext: move % 2 === 0 });
 
   handleClick = i => {
     const history = this.state.history;
@@ -27,7 +25,7 @@ class Game extends Component {
   };
 
   currentHistory = history => {
-    return history[this.state.stepNumber].squares.slice();
+      history[this.state.stepNumber].squares.slice();
   }
 
   render() {
