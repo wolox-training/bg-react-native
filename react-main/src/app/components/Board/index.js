@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
@@ -29,7 +30,7 @@ class Board extends Component {
   }
 }
 
-Board.PropTypes = {
+Board.propTypes = {
   squares: PropTypes.array,
   onClick: PropTypes.element
 };

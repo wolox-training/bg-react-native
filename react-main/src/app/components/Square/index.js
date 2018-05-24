@@ -11,9 +11,9 @@ function Square({ onClick, value }) {
   );
 }
 
-Square.PropTypes = {
-  onClick: PropTypes.element,
-  value: PropTypes.oneOf(['G', 'O'])
+Square.propTypes = {
+  value: PropTypes.oneOf(['X', 'O']),
+  onClick: PropTypes.element
 };
 
 export default Square;
