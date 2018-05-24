@@ -4,7 +4,6 @@ import Square from '../Square';
 
 class Board extends Component {
   renderSquare = i => <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
-  }
 
   render() {
     return (
