@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import Square from '../Square';
 
@@ -27,5 +28,10 @@ class Board extends Component {
     );
   }
 }
+
+Board.PropTypes = {
+  squares: PropTypes.array,
+  onClick: PropTypes.element
+};
 
 export default Board;
