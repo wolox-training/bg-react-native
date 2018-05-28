@@ -1,6 +1,7 @@
 files:
   include:
     - 'src/**/*.scss'
+    - 'src/app/components/App/Square/*.scss'
   ignore:
     - 'src/scss/overrides/**/*.scss'
 rules:
