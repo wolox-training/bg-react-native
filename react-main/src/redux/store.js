@@ -1,0 +1,10 @@
+import React from 'react';
+import { createStore, applyMiddleware } from 'redux';
+//import rootReducer from '../reducers';
+
+
+export default function configureStore(initialState) {
+    return createStore(
+        initialState
+    );
+}

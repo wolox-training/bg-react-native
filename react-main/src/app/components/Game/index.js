@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 import Board from '../Board';
 
@@ -51,4 +52,11 @@ class Game extends Component {
     );
   }
 }
-export default Game;
+
+const mapStateToProps = (state) => ({
+      scuare: state.squares,
+      xIsNext: state.xIsNext,
+      stepNumber: state.stepNumber
+});
+
+export default connect(mapStateToProps)(Game);
