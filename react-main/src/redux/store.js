@@ -1,10 +1,4 @@
-import React from 'react';
-import { createStore, applyMiddleware } from 'redux';
-//import rootReducer from '../reducers';
+import { createStore } from 'redux';
+import reducer from './draw/reducer';
 
-
-export default function configureStore(initialState) {
-    return createStore(
-        initialState
-    );
-}
+export default createStore(reducer);
