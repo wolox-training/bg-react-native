@@ -1,19 +1,13 @@
 import React from 'react';
 
-export const selectSquare = position => {
-    return {
-        type: "SELECT", payload: position
-    };
-};
+export const actions = {
+  SELECT: 'SELECT',
+  HISTORY: 'HISTORY',
+  WINNER: 'WINNER'
+}
 
-export const selectHistory = step => {
-    return {
-        type: "HISTORY", payload: step
-    };
-};
+export const selectSquare = position => ({ type: actions.SELECT, payload: position});
 
-export const getWinner = () => {
-    return {
-        type: "WINNER"
-    };
-};
+export const selectHistory = step => ({ type: actions.HISTORY, payload: step });
+
+export const getWinner = () => ({ type: actions.WINNER });

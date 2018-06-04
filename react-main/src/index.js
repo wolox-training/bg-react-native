@@ -9,7 +9,7 @@ import styles from './scss/index.scss';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-    <Provider store={store}>
-    <Game className={styles} />
-    </Provider>, document.getElementById('root'));
+  <Provider store={store}>
+  <Game className={styles} />
+  </Provider>, document.getElementById('root'));
 registerServiceWorker();
