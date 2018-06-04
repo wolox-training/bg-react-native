@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Game from 'app/components/Game/index';
+import App from 'app/components/App/index';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
@@ -10,6 +10,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
     <Provider store={store}>
-    <Game className={styles} />
+        <App className={styles} />
     </Provider>, document.getElementById('root'));
 registerServiceWorker();
