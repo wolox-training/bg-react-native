@@ -10,25 +10,25 @@ import styles from './styles.scss';
 class Game extends Component {
 
   handleSquareClick = i => (
-      this.props.square(i)
+    this.props.square(i)
   );
 
   handleHistoryClick = step => {
-      return this.props.historySelected(step);
+    return this.props.historySelected(step);
   };
 
-  componentDidMount(){
-     this.props.winner()
+  componentDidMount() {
+    this.props.winner()
   };
 
-  componentWillUpdate(){
-     this.props.winner()
+  componentDidUpdate() {
+    this.props.winner()
   };
 
   render() {
     const moves = this.props.history.map((step, move) => {
       const desc = move ? `Go to move #${move}` : 'Go to game start';
-      return (
+        return (
         <li key={move}>
           <button onClick={() => this.handleHistoryClick(move)}>{desc}</button>
         </li>
@@ -49,20 +49,20 @@ class Game extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return{
-       history: state.history,
-       isNext: state.xIsNext,
-       current: state.stepNumber,
-       status: state.status
+  return {
+    history: state.history,
+    isNext: state.xIsNext,
+    current: state.stepNumber,
+    status: state.status
   }
 };
 
 const mapDispatchToProps = dispatch => {
-    return {
-        square: i => dispatch(selectSquare(i)),
-        historySelected: step => dispatch(selectHistory(step)),
-        winner: () => dispatch(getWinner())
-    };
+  return {
+    square: i => dispatch(selectSquare(i)),
+    historySelected: step => dispatch(selectHistory(step)),
+    winner: () => dispatch(getWinner())
+  };
 };
 
 export default connect (mapStateToProps,mapDispatchToProps)(Game);

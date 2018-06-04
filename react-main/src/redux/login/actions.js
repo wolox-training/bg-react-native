@@ -1,9 +1,9 @@
 import React from 'react';
 
 export const actions = {
-  SELECT: 'SELECT',
-  HISTORY: 'HISTORY',
-  WINNER: 'WINNER'
+    SELECT: '',
+    HISTORY: 'HISTORY',
+    WINNER: 'WINNER'
 }
 
 export const selectSquare = position => ({ type: actions.SELECT, payload: position});
