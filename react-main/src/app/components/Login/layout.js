@@ -5,10 +5,10 @@ import { reduxForm, Field } from 'redux-form';
 //import TextInput from './textInput';
 //import PasswordInput from './passwordInput';
 
-export default SimpleForm = props => {
-    const { handleSubmit } = props
+const SimpleForm = ({ handleSubmit, handleChange }) => {
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={ handleSubmit }>
             <div>
                 <label>First Name</label>
                 <div>
@@ -16,15 +16,17 @@ export default SimpleForm = props => {
                         name="firstName"
                         component="input"
                         type="text"
-                        placeholder="First Name"
+                        onChange={handleChange}
                     />
                 </div>
             </div>
         </form>
     );
-
 }
-//export default reduxForm({ form: 'signIn' })(SimpleForm);
+
+///export default SimpleForm;
+
+export default reduxForm({ form: 'signIn' })(SimpleForm);
 
 /*<label className={styles.login}>Email</label>
 <Field name='email' component={TextInput}/>

@@ -1,38 +1,33 @@
 import React, { Component, Fragment } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import SimpleForm from './layout';
 import styles from './styles.scss';
 
 import TextInput from './textInput';
 import PasswordInput from './passwordInput';
 
+class Login extends Component {
 
-
-
-const Login = () => {
     handleSubmit = (values) => (
         console.log(values)
     )
-  return (
-      <form onSubmit={this.handleSubmit}>
-          <div>
-              <label>First Name</label>
-              <div>
-                  <Field
-                      name="firstName"
-                      component="input"
-                      type="text"
-                      placeholder="First Name"
-                  />
-              </div>
-          </div>
-      </form>
-   );
+
+    handleChange(event) {
+       console.log(event.target.value);
+    }
+
+
+
+    render() {
+        return (
+            <SimpleForm onSubmit={this.handleSubmit()} onChange={this.handleChange}/>
+        );
+    }
+
 }
 
-
-
-export default reduxForm({ form: 'signIn' })(Login);
-
+//export default reduxForm({ form: 'signIn' })(Login);
+export default Login;
 
 
 //<Component handleSubmit={this.handleSubmit} />
