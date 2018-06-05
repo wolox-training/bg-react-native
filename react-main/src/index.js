@@ -10,6 +10,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
-  <Game className={styles} />
+    <Game className={styles} />
   </Provider>, document.getElementById('root'));
 registerServiceWorker();

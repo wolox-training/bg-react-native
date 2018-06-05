@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Board from '../Board';
+import Move from '../Move';
 
 import { connect } from 'react-redux';
 import { selectSquare, selectHistory, getWinner } from '../../../redux/game/actions';
@@ -26,21 +27,16 @@ class Game extends Component {
   };
 
   render() {
-    const moves = this.props.history.map((step, move) => {
-      const desc = move ? `Go to move #${move}` : 'Go to game start';
-        return (
-        <li key={move}>
-          <button onClick={() => this.handleHistoryClick(move)}>{desc}</button>
-        </li>
-      );
-    });
+    const moves = this.props.history.map(
+      (step, move) => (
+        <Move key={step.id} onClick={this.handleHistoryClick} move={move}/>
+      )
+    );
     return (
       <div className={styles.game}>
+        <Board squares={this.props.history[this.props.current].squares} onClick={this.handleSquareClick} />
         <div className={styles.gameInfo}>
-          <Board squares={this.props.history[this.props.current].squares} onClick={this.handleSquareClick} />
-        </div>
-        <div className={styles.gameInfo}>
-          <div>{this.props.status}</div>
+          <p>{this.props.status}</p>
           <ol>{moves}</ol>
         </div>
       </div>
@@ -48,21 +44,17 @@ class Game extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return{
-    history: state.history,
-    isNext: state.xIsNext,
-    current: state.stepNumber,
-    status: state.status
-  }
-};
+const mapStateToProps = state => ({
+  history: state.history,
+  isNext: state.xIsNext,
+  current: state.stepNumber,
+  status: state.status
+})
 
-const mapDispatchToProps = dispatch => {
-  return {
-    square: i => dispatch(selectSquare(i)),
-    historySelected: step => dispatch(selectHistory(step)),
-    winner: () => dispatch(getWinner())
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  square: i => dispatch(selectSquare(i)),
+  historySelected: step => dispatch(selectHistory(step)),
+  winner: () => dispatch(getWinner())
+})
 
-export default connect (mapStateToProps,mapDispatchToProps)(Game);
+export default connect (mapStateToProps, mapDispatchToProps)(Game);

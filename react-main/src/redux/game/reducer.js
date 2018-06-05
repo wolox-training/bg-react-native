@@ -16,7 +16,7 @@ export function reducer(state = initialState, action) {
       }
       squares[action.payload] = state.xIsNext ? "X" : "O";
       return {
-          ...state, history: history.concat([{squares}]),
+          ...state, history: [...history, { squares }],
           squares: squares,
           stepNumber: state.stepNumber + 1,
           xIsNext: !state.xIsNext
