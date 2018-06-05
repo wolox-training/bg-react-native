@@ -2,31 +2,55 @@ import React, { Component, Fragment } from 'react';
 import { reduxForm, Field } from 'redux-form';
 //import styles from './styles.scss';
 
-//import TextInput from './textInput';
-//import PasswordInput from './passwordInput';
+export const minLength = min => value =>
+  value && value.length < min ? `Must be ${min} characters or more` : undefined
 
-const SimpleForm = ({ handleSubmit, handleChange }) => {
+const minLength8 = minLength(8)
 
-    return (
-        <form onSubmit={ handleSubmit }>
-            <div>
-                <label>First Name</label>
-                <div>
-                    <Field
-                        name="firstName"
-                        component="input"
-                        type="text"
-                        onChange={handleChange}
-                    />
-                </div>
-            </div>
-        </form>
-    );
+const required = value => (value ? undefined : 'Required');
+
+const FormInput = props => {
+
+  const {handleSubmit} = props;
+  return (
+
+  <form onSubmit={handleSubmit}>
+    <div>
+      <label>Email</label>
+      <div>
+        <Field
+          name="email"
+          component="input"
+          type="email"
+          placeholder="example@gmail.com"
+         />
+      </div>
+      <label>Password</label>
+      <div>
+        <Field
+          name="password"
+          component="input"
+          type="password"
+          required="required"
+          validate={[required, minLength8]}
+        />
+      </div>
+      <button type="submit">
+        Submit
+      </button>
+      </div>
+  </form>
+  );
 }
 
-///export default SimpleForm;
+export default reduxForm({
+    form: 'simple'
+})(FormInput)
 
-export default reduxForm({ form: 'signIn' })(SimpleForm);
+
+
+
+
 
 /*<label className={styles.login}>Email</label>
 <Field name='email' component={TextInput}/>

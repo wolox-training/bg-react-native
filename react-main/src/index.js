@@ -8,13 +8,13 @@ import Game from 'app/components/Game/index';
 import Login from 'app/components/Login/index';
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router>
-            <Fragment>
-                <Route exact path="/" component={Login} />
-                <Route path="/game" component={Game}/>
-            </Fragment>
-        </Router>
-    </Provider>, document.getElementById('root'));
+  <Provider store={store}>
+    <Router>
+      <Fragment>
+        <Route exact path="/" component={Login} />
+        <Route path="/game" component={Game}/>
+      </Fragment>
+    </Router>
+  </Provider>, document.getElementById('root'));
 
 registerServiceWorker();

@@ -1,38 +1,31 @@
-import React, { Component, Fragment } from 'react';
-import { reduxForm, Field } from 'redux-form';
-import SimpleForm from './layout';
-import styles from './styles.scss';
-
-import TextInput from './textInput';
-import PasswordInput from './passwordInput';
+import React, { Component } from 'react';
+import FormInput from './layout';
+import { connect } from 'react-redux';
+import { getToken } from '../../../redux/login/actions';
 
 class Login extends Component {
+  handleSubmit = values => (
+    this.props.token(values)
+  )
 
-    handleSubmit = (values) => (
-        console.log(values)
-    )
-
-    handleChange(event) {
-       console.log(event.target.value);
-    }
-
-
-
-    render() {
-        return (
-            <SimpleForm onSubmit={this.handleSubmit()} onChange={this.handleChange}/>
-        );
-    }
-
+  render() {
+    return (
+      <FormInput onSubmit={this.handleSubmit} />
+    );
+  }
 }
 
-//export default reduxForm({ form: 'signIn' })(Login);
-export default Login;
+const mapStateToProps = state => ({
+  values: state.values
+})
 
+const mapDispatchToProps = dispatch => ({
+  token: (values) => dispatch(getToken(values.email, values.pass))
+})
+
+export default connect (mapStateToProps, mapDispatchToProps)(Login);
 
 //<Component handleSubmit={this.handleSubmit} />
-
-//desde el index mando esto al layout.
 
 /*<Fragment>
       <label className={styles.login}>Email</label>
@@ -41,4 +34,4 @@ export default Login;
       <Field name='password' component={PasswordInput}/>
       <Field name='submit' component={}/>
     </Fragment>
-    */
+*/

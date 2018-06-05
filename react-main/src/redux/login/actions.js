@@ -1,13 +1,7 @@
 import React from 'react';
 
 export const actions = {
-    SELECT: '',
-    HISTORY: 'HISTORY',
-    WINNER: 'WINNER'
+    TOKEN: 'TOKEN'
 }
 
-export const selectSquare = position => ({ type: actions.SELECT, payload: position});
-
-export const selectHistory = step => ({ type: actions.HISTORY, payload: step });
-
-export const getWinner = () => ({ type: actions.WINNER });
+export const getToken = (email, pass) => ({ type: actions.TOKEN, email: email, pass: pass});
