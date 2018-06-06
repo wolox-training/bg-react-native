@@ -1,17 +1,19 @@
 import React from 'react';
-
 import { actions } from './actions'
 
-const initialState = { value: ''};
+const initialState = { token: '', auth: false};
 
 export function reducerLogin (state = initialState, action) {
   switch (action.type) {
-    case actions.TOKEN:
-      console.log(action.email)
+    case actions.GET_TOKEN_SUCCESS:
       return {
-        ...state
+        ...state, token: action.payload.token, auth: true
       };
-      default:
+    case actions.GET_TOKEN_FAILURE:
+      return {
+        ...state,
+      };
+    default:
         return state;
     }
 }

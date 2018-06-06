@@ -3,57 +3,57 @@ import { reduxForm, Field } from 'redux-form';
 //import styles from './styles.scss';
 
 export const minLength = min => value =>
-  value && value.length < min ? `Must be ${min} characters or more` : undefined
+  value && value.length < min ? ` Must be ${min} characters or more` : undefined
 
 const minLength8 = minLength(8)
 
-const required = value => (value ? undefined : 'Required');
+const required = value => (value ? undefined : ' Required');
+
+const renderField = ({
+  input,
+  placeholder,
+  type,
+  meta: {touched, error}
+}) => (
+  <div>
+    <div>
+      <input {...input} placeholder={placeholder} type={type}/>
+      {touched && (error && <span>{error}</span>)}
+    </div>
+  </div>
+);
 
 const FormInput = props => {
 
   const {handleSubmit} = props;
   return (
-
-  <form onSubmit={handleSubmit}>
-    <div>
-      <label>Email</label>
+    <form onSubmit={handleSubmit}>
       <div>
-        <Field
-          name="email"
-          component="input"
-          type="email"
-          placeholder="example@gmail.com"
-         />
-      </div>
-      <label>Password</label>
-      <div>
-        <Field
-          name="password"
-          component="input"
-          type="password"
-          required="required"
-          validate={[required, minLength8]}
-        />
-      </div>
-      <button type="submit">
-        Submit
-      </button>
-      </div>
-  </form>
+        <label>Email</label>
+        <div>
+          <Field
+            name="email"
+            component={renderField}
+            type="email"
+            placeholder="example@gmail.com"
+            validate={required}
+           />
+        </div>
+        <label>Password</label>
+        <div>
+          <Field
+            name="password"
+            component={renderField}
+            type="password"
+            validate={[required, minLength8]}
+          />
+        </div>
+        <button type="submit">
+          Submit
+        </button>
+        </div>
+    </form>
   );
-}
+};
 
-export default reduxForm({
-    form: 'simple'
-})(FormInput)
-
-
-
-
-
-
-/*<label className={styles.login}>Email</label>
-<Field name='email' component={TextInput}/>
-<label className={styles.login}>Password</label>
-<Field name='password' component={PasswordInput}/>
-<Field name='submit' component={}/>*/
+export default reduxForm({form: 'simple'})(FormInput)

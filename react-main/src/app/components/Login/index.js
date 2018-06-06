@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import FormInput from './layout';
 import { connect } from 'react-redux';
-import { getToken } from '../../../redux/login/actions';
+import actionCreators from '../../../redux/login/actions';
 
 class Login extends Component {
   handleSubmit = values => (
-    this.props.token(values)
-  )
+    this.props.login(values)
+  );
 
   render() {
     return (
@@ -17,21 +17,10 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   values: state.values
-})
+});
 
 const mapDispatchToProps = dispatch => ({
-  token: (values) => dispatch(getToken(values.email, values.pass))
-})
+  login: (credentials) => dispatch(actionCreators.login({email: credentials.email, password: credentials.password}))
+});
 
 export default connect (mapStateToProps, mapDispatchToProps)(Login);
-
-//<Component handleSubmit={this.handleSubmit} />
-
-/*<Fragment>
-      <label className={styles.login}>Email</label>
-      <Field name='email' component={TextInput}/>
-      <label className={styles.login}>Password</label>
-      <Field name='password' component={PasswordInput}/>
-      <Field name='submit' component={}/>
-    </Fragment>
-*/
