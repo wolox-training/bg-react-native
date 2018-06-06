@@ -1,10 +1,10 @@
 import React from 'react';
 import loginService from "../../services/loginService";
+import { history } from '../store';
 
 export const actions = {
   GET_TOKEN_SUCCESS: 'GET_TOKEN_SUCCESS',
-  GET_TOKEN_FAILURE: 'GET_TOKEN_FAILURE',
-  ASD: 'ASD'
+  GET_TOKEN_FAILURE: 'GET_TOKEN_FAILURE'
 };
 
 const actionCreators = {
@@ -16,6 +16,7 @@ const actionCreators = {
       type: actions.GET_TOKEN_SUCCESS,
       payload: response.data //esto trae un token de la api
     });
+    history.push('/game');
   } else {
     alert("Invalid password");
       dispatch ({

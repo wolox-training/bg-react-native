@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-
 import Board from '../Board';
 import Move from '../Move';
-
 import { connect } from 'react-redux';
 import { selectSquare, selectHistory, getWinner } from '../../../redux/game/actions';
-
 import styles from './styles.scss';
 
 class Game extends Component {
@@ -45,16 +42,16 @@ class Game extends Component {
 }
 
 const mapStateToProps = state => ({
-  history: state.history,
-  isNext: state.xIsNext,
-  current: state.stepNumber,
-  status: state.status
-})
+  history: state.game.history,
+  isNext: state.game.xIsNext,
+  current: state.game.stepNumber,
+  status: state.game.status
+});
 
 const mapDispatchToProps = dispatch => ({
   square: i => dispatch(selectSquare(i)),
   historySelected: step => dispatch(selectHistory(step)),
   winner: () => dispatch(getWinner())
-})
+});
 
 export default connect (mapStateToProps, mapDispatchToProps)(Game);
