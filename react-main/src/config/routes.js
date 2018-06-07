@@ -1,6 +1,6 @@
-import React from 'react';
-import { ConnectedRouter } from 'react-router-redux';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, Switch, Redirect, Router } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { history } from '../redux/store';
 import Game from '../app/components/Game';
@@ -11,15 +11,25 @@ export const ROUTES = {
   LOGIN: () => '/'
 };
 
-function AppRoutes() {
+function Layout(auth) {
+  return auth ? <Route path={ROUTES.GAME()} component={Game}/> : <Redirect to={ROUTES.LOGIN()}/>;
+}
+
+function AppRoutes(props) {
+  let {auth} = props;
   return (
-    <ConnectedRouter history={history}>
+    <Router history={history}>
       <Switch>
-        <Route exact path={ROUTES.LOGIN()} component={Login} />
-        <Route path={ROUTES.GAME()} component={Game} />
+        <Route exact path={ROUTES.LOGIN()} component={Login}/>
+        <Route path={ROUTES.GAME()} component={()=>Layout(auth)}/>
       </Switch>
-    </ConnectedRouter>
+    </Router>
   );
 }
 
-export default AppRoutes;
+const mapStateToProps = state => ({
+  auth: state.login.auth,
+  token: state.login.token
+});
+
+export default connect (mapStateToProps, {})(AppRoutes);

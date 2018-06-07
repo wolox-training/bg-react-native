@@ -26,14 +26,14 @@ class Game extends Component {
   render() {
     const moves = this.props.history.map(
       (step, move) => (
-        <Move key={step.id} onClick={this.handleHistoryClick} move={move}/>
+        <Move key={step} onClick={this.handleHistoryClick} move={move}/>
       )
     );
     return (
       <div className={styles.game}>
         <Board squares={this.props.history[this.props.current].squares} onClick={this.handleSquareClick} />
         <div className={styles.gameInfo}>
-          <p>{this.props.status}</p>
+          <p className={styles.status}>{this.props.status}</p>
           <ol>{moves}</ol>
         </div>
       </div>

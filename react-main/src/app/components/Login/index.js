@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import FormInput from './layout';
 import { connect } from 'react-redux';
+
 import actionCreators from '../../../redux/login/actions';
+
+import FormInput from './layout';
 
 class Login extends Component {
   handleSubmit = values => (
-    this.props.login(values)
+      this.props.login(values)
   );
 
   render() {
@@ -16,7 +18,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-  values: state.login.values
+  token: state.login.token
 });
 
 const mapDispatchToProps = dispatch => ({

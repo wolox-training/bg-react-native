@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
-//import styles from './styles.scss';
+import styles from './styles.scss';
 
 export const minLength = min => value =>
   value && value.length < min ? ` Must be ${min} characters or more` : undefined
@@ -24,7 +25,6 @@ const renderField = ({
 );
 
 const FormInput = props => {
-
   const {handleSubmit} = props;
   return (
     <form onSubmit={handleSubmit}>
@@ -48,12 +48,16 @@ const FormInput = props => {
             validate={[required, minLength8]}
           />
         </div>
-        <button type="submit">
+        <button type="submit" className={styles.loginButton}>
           Submit
         </button>
         </div>
     </form>
   );
+};
+
+FormInput.propTypes = {
+  handleSubmit: PropTypes.element
 };
 
 export default reduxForm({form: 'simple'})(FormInput)
