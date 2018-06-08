@@ -1,13 +1,13 @@
 import React from 'react';
 import loginService from "../../services/loginService";
-import { history } from '../store';
+import { push } from 'react-router-redux';
 
 export const actions = {
   GET_TOKEN_SUCCESS: 'GET_TOKEN_SUCCESS',
-  GET_TOKEN_FAILURE: 'GET_TOKEN_FAILURE'
+  GET_TOKEN_FAILURE: 'GET_TOKEN_FAILURE',
 };
 
-const actionCreators = {
+const actionCreatorsLogin = {
   login: (credentials) => async dispatch => {
     //dispatch({ type: actions.GET_BOOKS }); PREGUNTAR
     const response = await loginService.login(credentials);
@@ -16,7 +16,7 @@ const actionCreators = {
         type: actions.GET_TOKEN_SUCCESS,
         payload: response.data //esto trae un token de la api
       });
-      history.push('/game');
+      dispatch(push('/game'));
     } else {
         if (response.data.emailInvalid) {
           alert("Invalid email")
@@ -33,4 +33,4 @@ const actionCreators = {
   }
 };
 
-export default actionCreators
+export default actionCreatorsLogin;

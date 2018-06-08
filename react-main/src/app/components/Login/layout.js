@@ -51,7 +51,7 @@ const FormInput = props => {
         <button type="submit" className={styles.loginButton}>
           Submit
         </button>
-        </div>
+      </div>
     </form>
   );
 };

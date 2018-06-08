@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React  from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
@@ -8,7 +8,7 @@ import './scss/index.scss';
 
 ReactDOM.render(
   <Provider store={store}>
-      <AppRoutes/>
+    <AppRoutes/>
   </Provider>, document.getElementById('root'));
 
 registerServiceWorker();

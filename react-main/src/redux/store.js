@@ -2,6 +2,8 @@ import { createStore, combineReducers,applyMiddleware } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { reducer } from './game/reducer';
 import { reducerLogin } from './login/reducer';
+import { reducerScore } from './score/reducer';
+import { reducerLogout } from './logout/reducer';
 import thunk from 'redux-thunk';
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from 'react-router-redux';
@@ -12,7 +14,9 @@ const middleware = routerMiddleware(history);
 
 const rootReducer = combineReducers({
   login: reducerLogin,
+  logout: reducerLogout,
   game: reducer,
+  score: reducerScore,
   form: formReducer
 });
 

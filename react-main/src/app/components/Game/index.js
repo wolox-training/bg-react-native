@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment, Button } from 'react';
 import Board from '../Board';
 import Move from '../Move';
 import { connect } from 'react-redux';
 import { selectSquare, selectHistory, getWinner } from '../../../redux/game/actions';
 import styles from './styles.scss';
+import actionCreatorsLogout from '../../../redux/logout/actions';
+import { score } from '../../../redux/score/actions';
+import game from '../../../images/gamepad.svg';
+import logout from '../../../images/singout.svg';
 
 class Game extends Component {
 
@@ -13,6 +17,14 @@ class Game extends Component {
 
   handleHistoryClick = step => (
     this.props.historySelected(step)
+  );
+
+  handleLogout = () => (
+    this.props.logout()
+  );
+
+  handleScore = () => (
+    this.props.score()
   );
 
   componentDidMount() {
@@ -30,6 +42,12 @@ class Game extends Component {
       )
     );
     return (
+     <Fragment>
+      <div className={styles.topbar}>
+        <img src={game} alt="new_page" onClick={this.handleScore} />
+        <p className={styles.tictactoe}>Tic Tac Toe</p>
+        <img className={styles.logout} src={logout} alt="logout" onClick={this.handleLogout} />
+      </div>
       <div className={styles.game}>
         <Board squares={this.props.history[this.props.current].squares} onClick={this.handleSquareClick} />
         <div className={styles.gameInfo}>
@@ -37,6 +55,7 @@ class Game extends Component {
           <ol>{moves}</ol>
         </div>
       </div>
+     </Fragment>
     );
   }
 }
@@ -51,7 +70,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   square: i => dispatch(selectSquare(i)),
   historySelected: step => dispatch(selectHistory(step)),
-  winner: () => dispatch(getWinner())
+  winner: () => dispatch(getWinner()),
+  logout: () => dispatch(actionCreatorsLogout.logout(dispatch)),
+  score: () => dispatch(score(dispatch))
 });
 
 export default connect (mapStateToProps, mapDispatchToProps)(Game);
