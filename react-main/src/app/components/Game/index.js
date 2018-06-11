@@ -11,9 +11,7 @@ class Game extends Component {
     this.props.square(i)
   );
 
-  handleHistoryClick = step => (
-    this.props.historySelected(step)
-  );
+  handleHistoryClick = step => this.props.historySelected(step);
 
   componentDidMount() {
     this.props.winner()

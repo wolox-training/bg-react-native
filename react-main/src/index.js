@@ -8,7 +8,7 @@ import './scss/index.scss';
 
 ReactDOM.render(
   <Provider store={store}>
-      <AppRoutes/>
+    <AppRoutes/>
   </Provider>, document.getElementById('root'));
 
 registerServiceWorker();
