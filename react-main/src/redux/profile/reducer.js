@@ -5,7 +5,7 @@ const initialState = { info: '' };
 
 export function reducerScore(state = initialState, action) {
   switch (action.type) {
-    case actions.SCORE:
+    case actions.PROFILE:
       return {
         ...state
       };

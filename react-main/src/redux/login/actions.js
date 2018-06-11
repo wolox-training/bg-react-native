@@ -9,12 +9,11 @@ export const actions = {
 
 const actionCreatorsLogin = {
   login: (credentials) => async dispatch => {
-    //dispatch({ type: actions.GET_BOOKS }); PREGUNTAR
     const response = await loginService.login(credentials);
     if (response.ok) {
       dispatch ({
         type: actions.GET_TOKEN_SUCCESS,
-        payload: response.data //esto trae un token de la api
+        payload: response.data
       });
       dispatch(push('/game'));
     } else {

@@ -2,7 +2,7 @@ import React from 'react';
 import calculateWinner from '../../app/components/Game/utils';
 import { actions } from './actions';
 
-const initialState = { history: [{ squares: Array(9).fill(null) }], xIsNext: true, stepNumber: 0,  };
+const initialState = { history: [{ squares: Array(9).fill(null) }], xIsNext: true, stepNumber: 0 };
 
 export function reducer(state = initialState, action) {
   switch (action.type) {

@@ -4,28 +4,27 @@ import Move from '../Move';
 import { connect } from 'react-redux';
 import { selectSquare, selectHistory, getWinner } from '../../../redux/game/actions';
 import styles from './styles.scss';
-import actionCreatorsLogout from '../../../redux/logout/actions';
-import { score } from '../../../redux/score/actions';
-import game from '../../../images/gamepad.svg';
+
+import user from '../../../images/user.svg';
 import logout from '../../../images/singout.svg';
+import actionCreatorsLogout from '../../../redux/logout/actions';
+import { profile } from '../../../redux/profile/actions';
 
 class Game extends Component {
-
-  handleSquareClick = i => (
-    this.props.square(i)
-  );
-
-  handleHistoryClick = step => (
-    this.props.historySelected(step)
-  );
 
   handleLogout = () => (
     this.props.logout()
   );
 
-  handleScore = () => (
-    this.props.score()
+  handleProfile = () => {
+    return this.props.profile()
+  };
+
+  handleSquareClick = i => (
+    this.props.square(i)
   );
+
+  handleHistoryClick = step => this.props.historySelected(step);
 
   componentDidMount() {
     this.props.winner()
@@ -43,11 +42,11 @@ class Game extends Component {
     );
     return (
      <Fragment>
-      <div className={styles.topbar}>
-        <img src={game} alt="new_page" onClick={this.handleScore} />
-        <p className={styles.tictactoe}>Tic Tac Toe</p>
-        <img className={styles.logout} src={logout} alt="logout" onClick={this.handleLogout} />
-      </div>
+       <div className={styles.topbar}>
+         <img src={user} className={styles.profile} alt="new_page" onClick={this.handleProfile} />
+         <p className={styles.tictactoe}>Tic Tac Toe</p>
+         <img className={styles.logout} src={logout} alt="logout" onClick={this.handleLogout} />
+       </div>
       <div className={styles.game}>
         <Board squares={this.props.history[this.props.current].squares} onClick={this.handleSquareClick} />
         <div className={styles.gameInfo}>
@@ -72,7 +71,7 @@ const mapDispatchToProps = dispatch => ({
   historySelected: step => dispatch(selectHistory(step)),
   winner: () => dispatch(getWinner()),
   logout: () => dispatch(actionCreatorsLogout.logout(dispatch)),
-  score: () => dispatch(score(dispatch))
+  profile: () => dispatch(profile(dispatch))
 });
 
 export default connect (mapStateToProps, mapDispatchToProps)(Game);
