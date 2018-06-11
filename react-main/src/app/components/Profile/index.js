@@ -6,12 +6,18 @@ import styles from './styles.scss';
 class Profile extends Component {
   render() {
     return (
-      <div>
-        <h1>Profile: {this.props.email}</h1>
-        <img src={user} className={styles.photo} alt="new_page"/>
-        <label>Name</label>
-        <label>Score</label>
-      </div>
+      <Fragment>
+        <div className={styles.topbar}>
+          <h1>Profile</h1>
+        </div>
+        <div className={styles.layout}>
+          <div className={styles.profile}>
+            <img src={user} className={styles.photo} alt="new_page"/>
+            <label className={styles.data}>Username: {this.props.email}</label>
+            <label className={styles.data}>Score: 6</label>
+          </div>
+        </div>
+      </Fragment>
     );
   }
 }
