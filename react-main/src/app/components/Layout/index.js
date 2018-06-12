@@ -25,4 +25,4 @@ const mapStateToProps = state => ({
   token: state.login.token
 });
 
-export default connect (mapStateToProps)(Layout);
+export default connect(mapStateToProps)(Layout);
