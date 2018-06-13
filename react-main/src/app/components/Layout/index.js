@@ -6,7 +6,6 @@ import Game from '../Game';
 
 class Layout extends Component {
   render() {
-    debugger;
     let auth = this.props.auth;
     return auth ? <Route path={ROUTES.GAME()} component={Game}/> : <Redirect to={ROUTES.LOGIN()}/>;
   }

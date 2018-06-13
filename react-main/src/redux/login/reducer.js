@@ -5,6 +5,11 @@ const initialState = { token: localStorage.getItem('token'), auth: !!localStorag
 
 export function reducerLogin(state = initialState, action) {
   switch (action.type) {
+    case actions.GET_TOKEN:
+      //I do not do anything at the moment
+      return {
+        ...state
+      };
     case actions.GET_TOKEN_SUCCESS:
       localStorage.setItem('auth', action.payload.auth);
       localStorage.setItem('token', action.payload.token);
