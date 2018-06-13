@@ -7,7 +7,7 @@ class TopbarProfile extends Component {
   render() {
     return (
       <div className={styles.topbar}>
-        <img src={toPlay} className={styles.toplay} alt="To Play!" onClick={this.props.onClick}/>
+        <img src={this.props.src} className={styles.toplay} alt="To Play!" onClick={this.props.onClick}/>
         <p className={styles.title}>Profile</p>
         <img className={styles.logout} src={logout} alt="logout" onClick={this.props.handleLogout} />
       </div>

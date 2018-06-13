@@ -2,8 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import TopbarProfile from '../TopbarProfile';
 import ProfileLayout from './layout';
-import { goback } from '../../../redux/goBack/actions';
+import { back } from '../../../redux/goBack/actions';
 import actionCreatorsLogout from '../../../redux/logout/actions';
+import toPlay from '../../../images/toPlay.svg';
 
 class Profile extends Component {
   handleGame = () => (this.props.goback());
@@ -13,7 +14,7 @@ class Profile extends Component {
   render() {
     return (
       <Fragment>
-        <TopbarProfile email={this.props.email} onClick={this.handleGame} handleLogout={this.handleLogout}/>
+        <TopbarProfile src={toPlay} email={this.props.email} onClick={this.handleGame} handleLogout={this.handleLogout}/>
         <ProfileLayout />
       </Fragment>
     );
@@ -25,7 +26,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  goback: () => dispatch(goback(dispatch)),
+  goback: () => dispatch(back(dispatch)),
   logout: () => dispatch(actionCreatorsLogout.logout(dispatch))
 });
 

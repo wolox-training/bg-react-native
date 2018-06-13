@@ -1,36 +1,36 @@
 @import '../../../scss/colors';
 
 .loginButton {
-  margin: 5px 0;
   align-self: center;
-  width: 75px;
+  background-color: $white;
   border-radius: 5px;
+  margin: 5px 0;
+  width: 75px;
 }
 
 .divForm {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 800px;
+  justify-content: center;
 }
 
 .form {
-  box-shadow: 0 0 25px $dusty-gray;
   background-color: $white;
-  height: 350px;
-  width: 350px;
-  flex-direction: column;
+  border-radius: 75px;
+  box-shadow: 0 0 25px $dusty-gray;
   display: flex;
+  flex-direction: column;
+  height: 350px;
   justify-content: center;
   padding: 30px;
-  border-radius: 75px;
+  width: 350px;
 }
 
 .labelLogin {
-  align-self: baseline;
-  margin: 5px 30px;
   font-size: 16px;
+  margin: 5px 30px;
 }
 
 .title {
@@ -39,8 +39,8 @@
   &::before {
     content: url(../../../images/tic-tac-toe.svg);
     position: absolute;
-    transform: rotate(-20deg);
     top: -100px;
+    transform: rotate(-20deg);
     width: 100px;
   }
 }

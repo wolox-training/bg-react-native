@@ -1,21 +1,21 @@
 @import '../../../scss/colors';
 
+.layout {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
 .photo {
   height: 300px;
   width: 200px;
 }
 
-.layout {
-  margin: 20px;
-  display: flex;
-  justify-content: center;
-}
-
 .profile {
-  display: flex;
   align-items: center;
-  flex-direction: column;
   box-shadow: 0 0 5px $dusty-gray;
+  display: flex;
+  flex-direction: column;
 }
 
 .data {
