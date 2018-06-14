@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
+
+import WithLoading from '../WithLoading';
+
 import styles from './styles.scss';
 import RenderField from '../RenderField';
 
@@ -13,8 +16,9 @@ function required(value) {
   return value ? undefined : ' Required';
 }
 
-function FormInput(props) {
-  const validate = [required, minLength8];
+const validate = [required, minLength8];
+
+function Login(props) {
   const { handleSubmit } = props;
   return (
     <div className={styles.divForm}>
@@ -41,8 +45,8 @@ function FormInput(props) {
   );
 }
 
-FormInput.propTypes = {
+Login.propTypes = {
   handleSubmit: PropTypes.element
 };
 
-export default reduxForm({ form: 'simple' })(FormInput);
+export default reduxForm({ form: 'simple' })(WithLoading(Login));
