@@ -1,0 +1,8 @@
+@import '../../../scss/colors';
+
+.field {
+  margin: 5px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  color: $red;
+}

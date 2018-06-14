@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-
-import styles from './scss/index.scss';
+import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
+import store from './redux/store';
+import AppRoutes from './config/routes';
+import './scss/index.scss';
 
-import Game from '~components/Game'; // eslint-disable-line import/first
+ReactDOM.render(
+  <Provider store={store}>
+    <AppRoutes/>
+  </Provider>, document.getElementById('root'));
 
-ReactDOM.render(<Game className={styles} />, document.getElementById('root'));
 registerServiceWorker();

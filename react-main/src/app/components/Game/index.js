@@ -1,54 +1,55 @@
 import React, { Component } from 'react';
-
 import Board from '../Board';
-
+import Move from '../Move';
+import { connect } from 'react-redux';
+import { selectSquare, selectHistory, getWinner } from '../../../redux/game/actions';
 import styles from './styles.scss';
-import calculateWinner from './utils.js';
 
 class Game extends Component {
-  state = { history: [{ squares: Array(9).fill(null) }], xIsNext: true, stepNumber: 0 };
 
-  jumpTo = move => this.setState({ stepNumber: move, xIsNext: move % 2 === 0 });
+  handleSquareClick = i => (
+    this.props.square(i)
+  );
 
-  handleClick = i => {
-    const history = this.state.history;
-    const squares = history[this.state.stepNumber].squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
-      return;
-    }
+  handleHistoryClick = step => this.props.historySelected(step);
 
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
-      history: history.concat([{ squares }]),
-      xIsNext: !this.state.xIsNext,
-      stepNumber: this.state.stepNumber + 1
-    });
+  componentDidMount() {
+    this.props.winner()
+  };
+
+  componentDidUpdate() {
+    this.props.winner()
   };
 
   render() {
-    const history = this.state.history;
-    const squares = history[this.state.stepNumber].squares;
-    const winner = calculateWinner(squares);
-    const moves = history.map((step, move) => {
-      const desc = move ? `Go to move #${move}` : 'Go to game start';
-      return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
-      );
-    });
-    const status = winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+    const moves = this.props.history.map(
+      (step, move) => (
+        <Move key={step} onClick={this.handleHistoryClick} move={move}/>
+      )
+    );
     return (
       <div className={styles.game}>
+        <Board squares={this.props.history[this.props.current].squares} onClick={this.handleSquareClick} />
         <div className={styles.gameInfo}>
-          <Board squares={squares} onClick={this.handleClick} />
-        </div>
-        <div className={styles.gameInfo}>
-          <div>{status}</div>
+          <p className={styles.status}>{this.props.status}</p>
           <ol>{moves}</ol>
         </div>
       </div>
     );
   }
 }
-export default Game;
+
+const mapStateToProps = state => ({
+  history: state.game.history,
+  isNext: state.game.xIsNext,
+  current: state.game.stepNumber,
+  status: state.game.status
+});
+
+const mapDispatchToProps = dispatch => ({
+  square: i => dispatch(selectSquare(i)),
+  historySelected: step => dispatch(selectHistory(step)),
+  winner: () => dispatch(getWinner())
+});
+
+export default connect (mapStateToProps, mapDispatchToProps)(Game);
