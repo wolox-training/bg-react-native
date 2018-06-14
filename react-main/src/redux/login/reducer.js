@@ -8,7 +8,7 @@ export function reducerLogin(state = initialState, action) {
     case actions.GET_TOKEN:
       //I do not do anything at the moment
       return {
-        ...state, token: action.payload.token, email: action.payload.email
+        ...state
       };
     case actions.GET_TOKEN_SUCCESS:
       localStorage.setItem('token', action.payload.token);
