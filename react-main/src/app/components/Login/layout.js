@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
 import styles from './styles.scss';
-import RenderField from '../RenderField/index';
+import RenderField from '../RenderField';
 
 export const minLength = min => value =>
   value && value.length < min ? ` Must be ${min} characters or more` : undefined;
@@ -14,6 +14,7 @@ function required(value) {
 }
 
 function FormInput(props) {
+  const validate = [required, minLength8];
   const { handleSubmit } = props;
   const validate = [required, minLength8];
   return (

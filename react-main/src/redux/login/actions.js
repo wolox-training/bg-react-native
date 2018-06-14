@@ -3,12 +3,14 @@ import loginService from "../../services/loginService";
 import { push } from 'react-router-redux';
 
 export const actions = {
+  GET_TOKEN: 'GET_TOKEN',
   GET_TOKEN_SUCCESS: 'GET_TOKEN_SUCCESS',
   GET_TOKEN_FAILURE: 'GET_TOKEN_FAILURE',
 };
 
 const actionCreatorsLogin = {
   login: (credentials) => async dispatch => {
+    dispatch({ type: actions.GET_TOKEN });
     const response = await loginService.login(credentials);
     if (response.ok) {
       dispatch ({
