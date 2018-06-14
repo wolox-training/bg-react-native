@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Move extends Component {
-
   handleClick = () => this.props.onClick(this.props.move);
 
   render() {
@@ -15,5 +15,10 @@ class Move extends Component {
     )
   }
 }
+
+Move.propTypes = {
+  move: PropTypes.number,
+  onClick: PropTypes.func
+};
 
 export default Move;

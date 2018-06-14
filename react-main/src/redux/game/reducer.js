@@ -1,7 +1,6 @@
 import React from 'react';
-
-import calculateWinner from '../../app/components/Game/utils'
-import { actions } from './actions'
+import calculateWinner from '../../app/components/Game/utils';
+import { actions } from './actions';
 
 const initialState = { history: [{ squares: Array(9).fill(null) }], xIsNext: true, stepNumber: 0 };
 
@@ -16,10 +15,10 @@ export function reducer(state = initialState, action) {
       }
       squares[action.payload] = state.xIsNext ? "X" : "O";
       return {
-          ...state, history: [...history, { squares }],
-          squares: squares,
-          stepNumber: state.stepNumber + 1,
-          xIsNext: !state.xIsNext
+        ...state, history: [...history, { squares }],
+        squares: squares,
+        stepNumber: state.stepNumber + 1,
+        xIsNext: !state.xIsNext
       };
     case actions.HISTORY:
       return {...state, stepNumber: action.payload, xIsNext: (action.payload % 2) === 0};

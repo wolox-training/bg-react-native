@@ -13,7 +13,7 @@ function Square({ onClick, value }) {
 
 Square.propTypes = {
   value: PropTypes.oneOf(['X', 'O']),
-  onClick: PropTypes.element
+  onClick: PropTypes.func
 };
 
 export default Square;

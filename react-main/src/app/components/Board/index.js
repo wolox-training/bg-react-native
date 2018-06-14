@@ -1,4 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Square from '../Square';
@@ -31,7 +30,7 @@ class Board extends Component {
 
 Board.propTypes = {
   squares: PropTypes.array,
-  onClick: PropTypes.element
+  onClick: PropTypes.func
 };
 
 export default Board;
