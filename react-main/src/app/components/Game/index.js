@@ -1,30 +1,21 @@
-import React, { Component, Fragment, Button } from 'react';
+import React, { Component, Fragment } from 'react';
 import Board from '../Board';
 import Move from '../Move';
+import TopbarGame from '../TopbarGame';
 import { connect } from 'react-redux';
 import { selectSquare, selectHistory, getWinner } from '../../../redux/game/actions';
 import styles from './styles.scss';
-
-import user from '../../../images/user.svg';
-import logout from '../../../images/singout.svg';
 import actionCreatorsLogout from '../../../redux/logout/actions';
 import { profile } from '../../../redux/profile/actions';
 
 class Game extends Component {
-
-  handleLogout = () => (
-    this.props.logout()
-  );
-
-  handleProfile = () => {
-    return this.props.profile()
-  };
-
-  handleSquareClick = i => (
-    this.props.square(i)
-  );
+  handleSquareClick = i => (this.props.square(i));
 
   handleHistoryClick = step => this.props.historySelected(step);
+
+  handleLogout = () => (this.props.logout());
+
+  handleProfile = () => (this.props.profile());
 
   componentDidMount() {
     this.props.winner()
@@ -40,20 +31,17 @@ class Game extends Component {
         <Move key={step} onClick={this.handleHistoryClick} move={move}/>
       )
     );
+
     return (
      <Fragment>
-       <div className={styles.topbar}>
-         <img src={user} className={styles.profile} alt="new_page" onClick={this.handleProfile} />
-         <p className={styles.tictactoe}>Tic Tac Toe</p>
-         <img className={styles.logout} src={logout} alt="logout" onClick={this.handleLogout} />
+       <TopbarGame handleProfile={this.handleProfile} handleLogout={this.handleLogout}/>
+       <div className={styles.game}>
+         <Board squares={this.props.history[this.props.current].squares} onClick={this.handleSquareClick} />
+         <div className={styles.gameInfo}>
+           <p className={styles.status}>{this.props.status}</p>
+           <ol>{moves}</ol>
+         </div>
        </div>
-      <div className={styles.game}>
-        <Board squares={this.props.history[this.props.current].squares} onClick={this.handleSquareClick} />
-        <div className={styles.gameInfo}>
-          <p className={styles.status}>{this.props.status}</p>
-          <ol>{moves}</ol>
-        </div>
-      </div>
      </Fragment>
     );
   }

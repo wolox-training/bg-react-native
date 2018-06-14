@@ -1,0 +1,31 @@
+@import '../../../scss/colors';
+
+.topbar{
+  background-color: $white;
+  box-shadow: 0 0 25px $dusty-gray;
+  display: flex;
+  height: 100px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.toplay {
+  height: 80px;
+  width: 80px;
+  align-self: center;
+  border: solid $curious-blue;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.logout {
+  align-self: center;
+  border: solid $curious-blue;
+  border-radius: 28px;
+  height: 30px;
+  margin: 20px;
+  width: 70px;
+}

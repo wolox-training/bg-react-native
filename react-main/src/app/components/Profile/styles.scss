@@ -1,4 +1,26 @@
+@import '../../../scss/colors';
+
+.layout {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
 .photo {
   height: 300px;
   width: 200px;
+}
+
+.profile {
+  align-items: center;
+  box-shadow: 0 0 5px $dusty-gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.data {
+  align-self: flex-start;
+  font-family: 'Titillium Web';
+  font-size: 25px;
+  margin: 10px;
 }

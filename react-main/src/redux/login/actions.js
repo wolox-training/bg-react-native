@@ -1,6 +1,7 @@
 import React from 'react';
 import loginService from "../../services/loginService";
 import { push } from 'react-router-redux';
+import { ROUTES } from '../../constants/routes';
 
 export const actions = {
   GET_TOKEN: 'GET_TOKEN',
@@ -17,7 +18,7 @@ const actionCreatorsLogin = {
         type: actions.GET_TOKEN_SUCCESS,
         payload: response.data
       });
-      dispatch(push('/game'));
+      dispatch(push(ROUTES.GAME()));
     } else {
         if (response.data.emailInvalid) {
           alert("Invalid email")
