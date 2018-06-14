@@ -16,7 +16,6 @@ function required(value) {
 function FormInput(props) {
   const validate = [required, minLength8];
   const { handleSubmit } = props;
-  const validate = [required, minLength8];
   return (
     <div className={styles.divForm}>
       <form className={styles.form} onSubmit={handleSubmit}>
