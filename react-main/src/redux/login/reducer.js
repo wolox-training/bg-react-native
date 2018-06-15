@@ -24,6 +24,6 @@ export function reducerLogin(state = initialState, action) {
         ...state
       };
     default:
-      return {...state};
+      return state;
    }
 }

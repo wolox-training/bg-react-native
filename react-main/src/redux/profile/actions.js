@@ -5,4 +5,4 @@ export const actions = {
   PROFILE: 'PROFILE'
 };
 
-export const profile = (dispatch) => (dispatch(push('/profile')), {type: actions.PROFILE});
+export const profile = () => ({ type: actions.PROFILE });
