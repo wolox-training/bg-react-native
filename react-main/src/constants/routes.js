@@ -2,5 +2,6 @@ import React from 'react';
 
 export const ROUTES = {
   GAME: () => '/game',
-  LOGIN: () => '/'
+  LOGIN: () => '/',
+  PROFILE: () => '/profile'
 };

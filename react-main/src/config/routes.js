@@ -11,6 +11,7 @@ function AppRoutes() {
       <Switch>
         <Route exact path={ROUTES.LOGIN()} component={Login}/>
         <Route path={ROUTES.GAME()} component={Layout}/>
+        <Route path={ROUTES.PROFILE()} component={Layout}/>
       </Switch>
     </Router>
   );

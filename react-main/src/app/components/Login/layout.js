@@ -38,7 +38,6 @@ function FormInput(props) {
         <button type="submit" className={styles.loginButton}>Submit</button>
       </form>
     </div>
-
   );
 }
 

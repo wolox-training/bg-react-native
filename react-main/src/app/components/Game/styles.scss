@@ -1,6 +1,10 @@
+@import '../../../scss/colors';
+
 .game {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .gameInfo {
@@ -9,4 +13,35 @@
 
 .status {
   margin: 0 10px;
+}
+
+.topbar{
+  background-color: $white;
+  box-shadow: 0 0 25px $dusty-gray;
+  display: flex;
+  height: 100px;
+  justify-content: space-evenly;
+}
+
+.logout {
+  align-self: center;
+  border: solid $curious-blue;
+  border-radius: 28px;
+  height: 30px;
+  margin: 20px;
+  width: 70px;
+}
+
+.tictactoe {
+  align-self: center;
+  color: $black;
+  font-size: 24px;
+}
+
+.profile {
+  height: 80px;
+  width: 80px;
+  align-self: center;
+  border: solid $curious-blue;
+  border-radius: 10px;
 }
